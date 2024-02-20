@@ -11,35 +11,35 @@ public class App extends javax.swing.JFrame {
     AlgTransformacaoTranslacao algTransformacaoTranslacao;
     AlgTransformacaoEscala algTransformacaoEscala;
     AlgTransformacaoRotacao algTransformacaoRotacao;
-    private javax.swing.JMenu Limpar;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenu menuRecortes;
+    private javax.swing.JMenu menuCurvas;
+    private javax.swing.JMenu menuTransf;
+    private javax.swing.JMenu limpar;
+    private javax.swing.JMenuItem recortesRetas;
+    private javax.swing.JMenuItem recortesPoli;
     private javax.swing.JMenuItem curvasBezier;
     private javax.swing.JMenuItem curvasSpilne;
-    private javax.swing.JMenuItem limparFechar;
-    private javax.swing.JMenuItem recortesPoli;
-    private javax.swing.JMenuItem recortesRetas;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenu menuCurvas;
-    private javax.swing.JMenu menuRecortes;
-    private javax.swing.JMenu menuTransf;
+    private javax.swing.JMenuItem transformacaoTransl;
     private javax.swing.JMenuItem transformacaoEscala;
     private javax.swing.JMenuItem transformacaoRota;
-    private javax.swing.JMenuItem transformacaoTransl;
+    private javax.swing.JMenuItem limparFechar;
 
     int valor;
 
     public App() {
         menuBar = new javax.swing.JMenuBar();
         menuRecortes = new javax.swing.JMenu();
+        menuCurvas = new javax.swing.JMenu();
+        menuTransf = new javax.swing.JMenu();
+        limpar = new javax.swing.JMenu();
         recortesRetas = new javax.swing.JMenuItem();
         recortesPoli = new javax.swing.JMenuItem();
-        menuCurvas = new javax.swing.JMenu();
         curvasBezier = new javax.swing.JMenuItem();
         curvasSpilne = new javax.swing.JMenuItem();
-        menuTransf = new javax.swing.JMenu();
         transformacaoTransl = new javax.swing.JMenuItem();
         transformacaoEscala = new javax.swing.JMenuItem();
         transformacaoRota = new javax.swing.JMenuItem();
-        Limpar = new javax.swing.JMenu();
         limparFechar = new javax.swing.JMenuItem();
 
         setTitle("Trabalho 3 CG - Unificação de Algoritmos");
@@ -117,7 +117,7 @@ public class App extends javax.swing.JFrame {
 
         menuBar.add(menuTransf);
 
-        Limpar.setText("Limpar");
+        limpar.setText("Limpar");
 
         limparFechar.setText("Fechar janelas");
         limparFechar.addActionListener(new java.awt.event.ActionListener() {
@@ -125,9 +125,9 @@ public class App extends javax.swing.JFrame {
                 limparFecharActionPerformed(evt);
             }
         });
-        Limpar.add(limparFechar);
+        limpar.add(limparFechar);
 
-        menuBar.add(Limpar);
+        menuBar.add(limpar);
 
         setJMenuBar(menuBar);
 
@@ -143,7 +143,7 @@ public class App extends javax.swing.JFrame {
         );
     }
 
-    public void fecharTodasJanelas() {
+    public void fecharJanelas() {
         for (java.awt.Window window : java.awt.Window.getWindows()) {
             if (window instanceof javax.swing.JFrame && window != this) {
                 window.dispose();
@@ -184,7 +184,7 @@ public class App extends javax.swing.JFrame {
     }
 
     private void limparFecharActionPerformed(java.awt.event.ActionEvent evt) {
-        fecharTodasJanelas();
+        fecharJanelas();
     }
 
     public static void main(String args[]) {
